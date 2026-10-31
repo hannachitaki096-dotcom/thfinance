@@ -1,4 +1,4 @@
-name: Build TH Finance APK
+name: Build TH Finance Web APK
 
 on:
   workflow_dispatch:
@@ -29,11 +29,11 @@ jobs:
           gradle-version: "8.9"
 
       - name: Build debug APK
-        working-directory: TH_Finance_Android
+        working-directory: TH_Finance_Web
         run: gradle --no-daemon :app:assembleDebug
 
       - uses: actions/upload-artifact@v4
         with:
-          name: TH-Finance-APK
-          path: TH_Finance_Android/app/build/outputs/apk/debug/app-debug.apk
+          name: TH-Finance-Web-APK
+          path: TH_Finance_Web/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
