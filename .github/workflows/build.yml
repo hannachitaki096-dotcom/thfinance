@@ -12,23 +12,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Unzip project
-        run: unzip -oq "TH_Finance_Android*.zip"
-
-      - name: Fix code order
-        run: |
-          python3 - <<'PY'
-          p = "TH_Finance_Android/app/src/main/java/com/thfinance/app/MainActivity.kt"
-          s = open(p, encoding="utf-8").read()
-          start = s.index("    val pdfLauncher = rememberLauncherForActivityResult")
-          end = s.index("    var month by remember")
-          block = s[start:end]
-          s = s[:start] + s[end:]
-          anchor = '    val fmt = remember { NumberFormat.getNumberInstance(Locale("fr", "DZ")) }\n'
-          assert anchor in s
-          s = s.replace(anchor, anchor + block, 1)
-          open(p, "w", encoding="utf-8").write(s)
-          print("patched")
-          PY
+        run: unzip -oq TH_Finance_v2.zip
 
       - uses: actions/setup-java@v4
         with:
