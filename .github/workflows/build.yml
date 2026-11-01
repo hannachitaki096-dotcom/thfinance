@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Unzip project
-        run: unzip -oq TH_Finance_Web-2.zip
+        run: unzip -oq TH_Finance_Web-3.zip
 
       - uses: actions/setup-java@v4
         with:
